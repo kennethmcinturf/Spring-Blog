@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dice Roll game</title>
+</head>
+<body>
+<h1>Guessing Game</h1>
+<h3>This is your guess</h3>
+<p th:text="${guess}"></p>
+<h3>This is what Dice 1 rolled</h3>
+<p th:text="${dice1}"></p>
+<h3>This is what Dice 2 rolled</h3>
+<p th:text="${dice2}"></p>
+<h3>This is what Dice 3 rolled</h3>
+<p th:text="${dice3}"></p>
+<h3>This is what Dice 4 rolled</h3>
+<p th:text="${dice4}"></p>
+<h3>This is what Dice 5 rolled</h3>
+<p th:text="${dice5}"></p>
+<br/>
+<p>You were right <span th:text="${rightCounter}"></span> times</p>
+<a href="http://localhost:8080/roll-dice">Play Again!</a>
+</body>
+</html>

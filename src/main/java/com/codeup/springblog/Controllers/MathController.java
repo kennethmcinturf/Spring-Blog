@@ -15,7 +15,7 @@ public class MathController {
             if (operations.equals("add")){
                 return numberOne + numberTwo;
             }else if (operations.equals("subtract")){
-                return numberOne + numberTwo;
+                return numberTwo + numberOne;
             }else if (operations.equals("multiply")){
                 return numberOne + numberTwo;
             }else{

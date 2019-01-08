@@ -15,8 +15,8 @@ public class PostController {
 
         @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
         @ResponseBody
-        public String indivPost() {
-            return "view an individual post";
+        public String indivPost(@PathVariable long id) {
+            return "view an individual post " + id;
         }
 
         @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
