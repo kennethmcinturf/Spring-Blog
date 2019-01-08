@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+    <meta charset="UTF-8"/>
+    <title>Indiv Post</title>
+</head>
+<body>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div th:replace="partials :: header"></div>
+    <form action="/posts/create" method="post" th:object="${post}">
+        Title:
+        <br />
+        <input th:field="*{title}" />
+        <br />
+        Body:
+        <br />
+        <textarea th:field="*{body}" />
+        <br />
+        <input type="submit" />
+    </form>
+    <div th:replace="partials :: footer"></div>
+</div>
+</body>
+</html>
