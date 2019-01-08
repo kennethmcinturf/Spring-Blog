@@ -8,8 +8,8 @@
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
     <div th:replace="partials :: header"></div>
-<p th:text="${post.title}" />
-<p th:text="${post.body}" />
+<p th:text="${post.getTitle()}" />
+<p th:text="${post.getBody()}" />
     <div th:replace="partials :: footer"></div>
 </div>
 </body>
