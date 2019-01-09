@@ -45,7 +45,14 @@ public class PostController {
             newPost.setTitle(post.getTitle());
             newPost.setBody(post.getBody());
             postService.create(newPost);
-            return "posts/index";
+            return "redirect:http://localhost:8080/posts";
+        }
+
+        @RequestMapping(path = "/posts/{id}/edit", method = RequestMethod.GET)
+        public String editForm(Model model, @PathVariable int id) {
+            Post post = postService.one(id);
+            model.addAttribute("post", post);
+            return "posts/edit";
         }
     }
 

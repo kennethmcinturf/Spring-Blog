@@ -5,9 +5,9 @@
     <title>All Posts</title>
 </head>
 <body>
+<div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-<div th:replace="partials :: header"></div>
 <div th:each="post : ${posts}">
     <p th:text="${post.getTitle()}" />
     <p th:text="${post.getBody()}" />

@@ -6,14 +6,14 @@
 <div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-    <form action="/posts/create" method="post" th:object="${post}">
+    <form action="/posts/create" method="post">
         Title:
         <br />
-        <input th:field="*{title}" />
+        <input th:value="*{post.getTitle()}" type="text"/>
         <br />
         Body:
         <br />
-        <textarea th:field="*{body}" />
+        <textarea th:text="*{post.getBody()}" />
         <br />
         <input type="submit" />
     </form>
