@@ -11,8 +11,10 @@ import java.util.List;
 @Controller
 public class PostController {
     private final PostService postService;
+    private final UserRepository userDao;
 
-    public PostController(PostService postService) {
+    public PostController(PostService postService, UserRepository userDao) {
+        this.userDao = userDao;
         this.postService = postService;
     }
 
@@ -41,9 +43,13 @@ public class PostController {
         @RequestMapping(path = "/posts/create")
         @PostMapping
         public String createPost(@ModelAttribute Post post) {
+            User user = userDao.findOne(1);
+//            User user = new User("KC","Kc@email.com","Kc120892");
+//            userDao.save(user);
             Post newPost = new Post();
             newPost.setTitle(post.getTitle());
             newPost.setBody(post.getBody());
+            newPost.setUser(user);
             postService.create(newPost);
             return "redirect:http://localhost:8080/posts";
         }

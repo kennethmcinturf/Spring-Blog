@@ -34,7 +34,6 @@ public class PostService {
         Post post = one(id);
         post.setTitle(title);
         post.setBody(body);
-        System.out.println(post.getId());
         postsDao.save(post);
     }
 

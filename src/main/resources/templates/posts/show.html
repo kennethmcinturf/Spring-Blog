@@ -9,8 +9,9 @@
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
     <div class="row text-center">
-        <p th:text="${post.getTitle()}" />
+        <h2 th:text="${post.getTitle()}" class="underline"/>
         <p th:text="${post.getBody()}" />
+        <p th:text="${post.getUser().getEmail()}" />
         <a th:href="@{'/posts/' + ${post.getId() + 1} + '/edit'}" class="button">Edit Post</a>
         <a th:href="@{'/posts/' + ${post.getId() + 1} + '/delete'}" class="button">Delete Post</a>
     </div>
