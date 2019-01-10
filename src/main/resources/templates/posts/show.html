@@ -8,10 +8,12 @@
 <div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-    <p th:text="${post.getTitle()}" />
-    <p th:text="${post.getBody()}" />
-    <a th:href="@{'/posts/' + ${post.getId() + 1} + '/edit'}" class="button">Edit Post</a>
-    <a th:href="@{'/posts/' + ${post.getId() + 1} + '/delete'}" class="button">Delete Post</a>
+    <div class="row text-center">
+        <p th:text="${post.getTitle()}" />
+        <p th:text="${post.getBody()}" />
+        <a th:href="@{'/posts/' + ${post.getId() + 1} + '/edit'}" class="button">Edit Post</a>
+        <a th:href="@{'/posts/' + ${post.getId() + 1} + '/delete'}" class="button">Delete Post</a>
+    </div>
     <div th:replace="partials :: footer"></div>
 </div>
 </body>

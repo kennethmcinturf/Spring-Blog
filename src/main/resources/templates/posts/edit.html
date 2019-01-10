@@ -6,19 +6,30 @@
 <div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-    <form th:action="@{'/posts/' + ${post.getId() + 1} + '/edit'}" method="post" >
-        Title:
-        <br />
-        <input th:value="*{post.getTitle()}" type="text" name="title"/>
-        <br />
-        Body:
-        <br />
-        <input th:value="*{post.getBody()}" name="body"/>
-        <br />
-        <input th:value="*{post.getId()}" name="id" type="hidden"/>
-        <input type="submit" />
-    </form>
-    <div th:replace="partials :: footer"></div>
+    <div class="row text-center">
+        <div class="col-6">
+            <form th:action="'/posts/' + ${post.getId() + 1} + '/edit'" method="post" >
+                <span class="underline">Title</span>
+                <br/>
+                <br/>
+                <div class="mb-5">
+                    <input th:value="*{post.getTitle()}" type="text" name="title"/>
+                </div>
+                <br/>
+                <span class="underline">Body</span>
+                <br/>
+                <br/>
+                <div class="mb-5">
+                    <textarea th:text="*{post.getBody()}" name="body" class="mb-5"/>
+                </div>
+                <br/>
+                <input type="submit" />
+            </form>
+        </div>
+    </div>
+    <div class="m-5">
+        <div th:replace="partials :: footer"></div>
+    </div>
 </div>
 </body>
 </html>

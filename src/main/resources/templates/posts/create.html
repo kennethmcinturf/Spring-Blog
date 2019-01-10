@@ -6,17 +6,25 @@
 <div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-    <form action="/posts/create" method="post" th:object="${post}">
-        Title:
-        <br />
-        <input th:field="*{title}" />
-        <br />
-        Body:
-        <br />
-        <textarea th:field="*{body}"/>
-        <br />
-        <input type="submit" />
-    </form>
+    <div class="row text-center">
+        <form action="/posts/create" method="post" th:object="${post}">
+            <span class="underline">Title</span>
+            <br />
+            <br/>
+            <div class="mb-5">
+                <input th:field="*{title}" />
+            </div>
+            <br />
+            <span class="underline">Body</span>
+            <br />
+            <div class="mb-5">
+                <textarea th:field="*{body}"/>
+            </div>
+            <br />
+            <br/>
+            <input type="submit" />
+        </form>
+    </div>
     <div th:replace="partials :: footer"></div>
 </div>
 </body>
