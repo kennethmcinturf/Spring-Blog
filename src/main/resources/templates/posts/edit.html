@@ -6,15 +6,16 @@
 <div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-    <form action="/posts/create" method="post">
+    <form th:action="@{'/posts/' + ${post.getId() + 1} + '/edit'}" method="post" >
         Title:
         <br />
-        <input th:value="*{post.getTitle()}" type="text"/>
+        <input th:value="*{post.getTitle()}" type="text" name="title"/>
         <br />
         Body:
         <br />
-        <textarea th:text="*{post.getBody()}" />
+        <input th:value="*{post.getBody()}" name="body"/>
         <br />
+        <input th:value="*{post.getId()}" name="id" type="hidden"/>
         <input type="submit" />
     </form>
     <div th:replace="partials :: footer"></div>

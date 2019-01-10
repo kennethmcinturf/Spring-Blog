@@ -49,10 +49,22 @@ public class PostController {
         }
 
         @RequestMapping(path = "/posts/{id}/edit", method = RequestMethod.GET)
-        public String editForm(Model model, @PathVariable int id) {
+        public String goToEditForm(Model model, @PathVariable int id) {
             Post post = postService.one(id);
             model.addAttribute("post", post);
             return "posts/edit";
+        }
+
+        @RequestMapping(path = "/posts/{id}/delete", method = RequestMethod.GET)
+        public String deletePost(@PathVariable int id) {
+            postService.delete(id);
+            return "redirect:http://localhost:8080/posts";
+        }
+
+        @RequestMapping(path = "/posts/{id}/edit", method = RequestMethod.POST)
+        public String editForm(@PathVariable int id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
+            postService.edit(id,title,body);
+            return "redirect:http://localhost:8080/posts/" + id;
         }
     }
 

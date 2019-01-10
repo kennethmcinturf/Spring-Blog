@@ -8,10 +8,14 @@
 <div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-<div th:each="post : ${posts}">
-    <p th:text="${post.getTitle()}" />
-    <p th:text="${post.getBody()}" />
-</div>
+    <div class="row">
+        <div th:each="post : ${posts}">
+            <div class="col-md-4">
+                <a th:href="@{'/posts/' + ${post.getId() + 1}}"><span th:text="${post.getTitle()}"></span></a>
+                <p th:text="${post.getBody()}" />
+            </div>
+        </div>
+    </div>
 
 <div th:replace="partials :: footer"></div>
 </div>
