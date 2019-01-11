@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+  <div class="row text-center">
+      <th:block th:switch="${error}">
+          <div th:case="'Not Found'">
+              <h1 class="underline">That page dont exist!!!</h1>
+          </div>
+          <div th:case="'Forbidden'">
+              <h1 class="underline">You aint got rights to see this here page</h1>
+          </div>
+      </th:block>
+  </div>
+    <div class="row tex-center">
+        <a th:href="@{/templates/posts}" class="button">Go back to the Posts</a>
+    </div>
+    <div th:replace="partials :: footer"></div>
+</div>
+</body>
+</html>

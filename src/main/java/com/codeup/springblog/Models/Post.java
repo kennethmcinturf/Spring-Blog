@@ -1,6 +1,7 @@
 package com.codeup.springblog.Models;
 
 import com.codeup.springblog.Models.User;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -17,6 +18,7 @@ public class Post {
     private String body;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn (name = "user_id")
     private User user;
 

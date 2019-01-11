@@ -81,6 +81,16 @@ public class PostController {
             postService.edit(id,title,body);
             return "redirect:http://localhost:8080/posts/" + id;
         }
+
+        @GetMapping("/posts.json")
+        public @ResponseBody List<Post> viewAllAdsInJSONFormat() {
+            return postService.all();
+        }
+
+        @GetMapping("/posts/ajax")
+        public String viewAllAdsWithAjax() {
+            return "posts/ajax";
+        }
     }
 
 }
