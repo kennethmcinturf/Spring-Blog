@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div class="row text-center">
+        <h1>Log In</h1>
+        <div th:if="${param.error}">
+            Invalid Username and Password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+    </div>
+    <div class="row text-center">
+        <form th:action="@{/login}" method="post">
+            <span class="underline">Username</span>
+            <br />
+            <br/>
+            <div class="mb-5">
+                <input id="username" name="username" type="text" />
+            </div>
+            <br />
+            <span class="underline">Password</span>
+            <br />
+            <div class="mb-5">
+                <input id="password" name="password" type="password" />
+            </div>
+            <br />
+            <br/>
+            <input type="submit" value="Log In"/>
+        </form>
+    </div>
+    <div class="row  text-center" style="margin-top: 15px">
+        <a th:href="@{/sign-up}" class="button">Register</a>
+        <a th:href="@{/posts}" class="button">Go back to Post</a>
+    </div>
+    <div th:replace="partials :: footer"></div>
+</div>
+</body>
+</html>

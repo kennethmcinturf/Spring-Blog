@@ -1,4 +1,4 @@
-package com.codeup.springblog.Controllers;
+package com.codeup.springblog.Models;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,10 +10,10 @@ public class User {
     @Id @GeneratedValue
     private int id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -30,6 +30,13 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
     }
 
     public int getId() {

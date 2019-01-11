@@ -1,6 +1,6 @@
-package com.codeup.springblog.Controllers;
+package com.codeup.springblog.Repositories;
 
-import org.springframework.data.jpa.repository.Query;
+import com.codeup.springblog.Models.Post;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PostRepository extends CrudRepository<Post, Integer>{

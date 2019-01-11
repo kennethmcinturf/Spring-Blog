@@ -1,5 +1,10 @@
 package com.codeup.springblog.Controllers;
 
+import com.codeup.springblog.Models.Post;
+import com.codeup.springblog.Models.User;
+import com.codeup.springblog.Repositories.UserRepository;
+import com.codeup.springblog.Services.PostService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +41,9 @@ public class PostController {
 
         @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
         public String postForm(Model model) {
+            if ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal() == null){
+                return "redirect:http://localhost:8080/login";
+            }
             model.addAttribute("post", new Post());
             return "posts/create";
         }
@@ -43,9 +51,7 @@ public class PostController {
         @RequestMapping(path = "/posts/create")
         @PostMapping
         public String createPost(@ModelAttribute Post post) {
-            User user = userDao.findOne(1);
-//            User user = new User("KC","Kc@email.com","Kc120892");
-//            userDao.save(user);
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             Post newPost = new Post();
             newPost.setTitle(post.getTitle());
             newPost.setBody(post.getBody());
@@ -56,6 +62,9 @@ public class PostController {
 
         @RequestMapping(path = "/posts/{id}/edit", method = RequestMethod.GET)
         public String goToEditForm(Model model, @PathVariable int id) {
+            if ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal() == null){
+                return "redirect:http://localhost:8080/login";
+            }
             Post post = postService.one(id);
             model.addAttribute("post", post);
             return "posts/edit";

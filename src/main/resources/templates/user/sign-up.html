@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div class="row text-center">
+        <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+            <span class="underline">Username</span>
+            <br />
+            <br/>
+            <div class="mb-5">
+                <input th:field="*{username}" />
+            </div>
+            <br />
+            <span class="underline">Email</span>
+            <br />
+            <div class="mb-5">
+                <input th:field="*{email}" />
+            </div>
+            <br />
+            <span class="underline">Password</span>
+            <br />
+            <div class="mb-5">
+                <input th:field="*{password}" />
+            </div>
+            <br/>
+            <input type="submit" value="Sign me up!"/>
+        </form>
+    </div>
+    <div class="row  text-center" style="margin-top: 15px">
+        <a th:href="@{/login}" class="button">Log-in</a>
+        <a th:href="@{/posts}" class="button">Go back to Post</a>
+    </div>
+    <div th:replace="partials :: footer"></div>
+</div>
+</body>
+</html>

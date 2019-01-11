@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title>Codeup Blog</title>
@@ -20,6 +21,12 @@
         <ul class="nav navbar-nav navbar-right glad-nav ">
             <li><a href="http://localhost:8080/posts">See all Post</a></li>
             <li><a href="http://localhost:8080/posts/create">Create a Post</a></li>
+            <li><a href="http://localhost:8080/login">Log-in</a></li>
+            <li>
+                <form th:action="@{/logout}" th:method="post">
+                    <button class="btn-link btn" style="margin-top: 8px; color: white">Logout</button>
+                </form>
+            </li>
         </ul>
     </div>
 </nav>
@@ -27,6 +34,7 @@
     <div class="footer py-3 m-5">© 2019 Copyright:
         <a href="http://localhost:8080/"> codeupBlog.com</a>
     </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </div>
 </body>
 </html>

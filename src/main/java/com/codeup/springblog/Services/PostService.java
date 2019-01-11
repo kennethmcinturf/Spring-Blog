@@ -1,8 +1,9 @@
-package com.codeup.springblog.Controllers;
+package com.codeup.springblog.Services;
 
+import com.codeup.springblog.Models.Post;
+import com.codeup.springblog.Repositories.PostRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

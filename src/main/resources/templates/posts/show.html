@@ -8,14 +8,20 @@
 <div th:replace="partials :: header"></div>
 <nav th:replace="partials :: navbar"></nav>
 <div class="container">
-    <div class="row text-center">
+    <div class="row text-center" style="margin-bottom: 20px">
         <h2 th:text="${post.getTitle()}" class="underline"/>
+    </div>
+    <div class="row text-center" style="margin-bottom: 20px">
         <p th:text="${post.getBody()}" />
+    </div>
+    <div class="row text-center" style="margin-bottom: 50px">
         <p th:text="${post.getUser().getEmail()}" />
-        <a th:href="@{'/posts/' + ${post.getId() + 1} + '/edit'}" class="button">Edit Post</a>
+    </div>
+    <div class="row text-center" style="margin-bottom: 20px">
         <a th:href="@{'/posts/' + ${post.getId() + 1} + '/delete'}" class="button">Delete Post</a>
+        <a th:href="@{'/posts/' + ${post.getId() + 1} + '/edit'}" class="button">Edit Post</a>
+    </div>
     </div>
     <div th:replace="partials :: footer"></div>
-</div>
 </body>
 </html>
