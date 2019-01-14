@@ -2,6 +2,7 @@ package com.codeup.springblog.Models;
 
 import com.codeup.springblog.Models.User;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 
@@ -21,6 +22,9 @@ public class Post {
     @JsonManagedReference
     @JoinColumn (name = "user_id")
     private User user;
+
+    @Value("${file-upload-path}")
+    private String uploadPath;
 
     public User getUser() {
         return user;

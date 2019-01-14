@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-6">
+            <form action="/user/edit" method="post" >
+                <span class="underline">Email</span>
+                <br/>
+                <br/>
+                <div class="mb-5">
+                    <input th:value="*{user.getEmail()}" type="text" name="email"/>
+                </div>
+                <br/>
+                <span class="underline">Username</span>
+                <br/>
+                <br/>
+                <div class="mb-5">
+                    <textarea th:text="*{user.getUsername()}" name="username" class="mb-5"/>
+                </div>
+                <br/>
+                <span class="underline">Password</span>
+                <br/>
+                <br/>
+                <div class="mb-5">
+                    <textarea name="password" class="mb-5"/>
+                </div>
+                <br/>
+                <input type="hidden" th:value="*{user.getPassword()}" name="password"/>
+                <input type="submit" />
+            </form>
+        </div>
+    </div>
+    <div class="m-5">
+        <div th:replace="partials :: footer"></div>
+    </div>
+</div>
+</body>
+</html>
